@@ -1,0 +1,13 @@
+overwrite: true
+schema: "schema.graphql" # サーバのアドレス。勝手にスキーマを呼んでくれる
+documents: "queries/*.graphql" # 監視対象　ここのファイルに更新があれば自動的に型を作成
+generates:
+  ./generated/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+  ./generated/nodes.ts:
+    plugins:
+      - typescript-document-nodes
+  ./generated/class.ts:
+      - type-apollo-class.js

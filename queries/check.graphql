@@ -1,0 +1,8 @@
+query TweetAutorBody($id: ID!) {
+  Tweet(id: $id) {
+    Author {
+      username
+    }
+    body
+  }
+}

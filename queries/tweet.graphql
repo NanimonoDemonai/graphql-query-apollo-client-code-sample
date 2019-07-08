@@ -1,0 +1,28 @@
+query TweetMeta {
+  TweetsMeta {
+    count
+  }
+}
+
+query Tweet($id: ID!) {
+  Tweet(id: $id) {
+    body
+    date
+    Author {
+      full_name
+    }
+  }
+}
+
+mutation CreateTweet($body: String) {
+  createTweet(body: $body) {
+    id
+  }
+}
+
+subscription SubscComment($repoFullName: String!) {
+  commentAdded(repoFullName: $repoFullName) {
+    id
+    content
+  }
+}
